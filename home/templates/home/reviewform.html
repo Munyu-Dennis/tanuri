@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "home/base.html" %}{% load crispy_forms_tags%}{% load static%}
+
+<body>
+    {% block content %}
+    
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i>The Tanuri <small> Restaurant</small></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'service' %}" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="{% url 'aboutus' %}" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="{% url 'contant' %}" class="nav-link">Contact</a></li>
+                    <li class="nav-item active"><a href="{% url 'reviewform' %}" class="nav-link">Review</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+        <div class="block-30 block-30-sm item" style="background-image: url({% static 'images/hotel2.jpg' %});" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <span class="subheading-sm">Review</span>
+                    <h2 class="heading">Your Review</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="site-section bg-light">
+      <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-7 section-heading">
+              <span class="subheading-sm">Your Review</span>
+              <h2 class="heading">Please tell us what you think how was the food and the service?</h2>
+            </div>
+          </div>
+
+        
+      </div>
+    </div>
+  <div class="site-section">
+    <div class="container">
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+          <form method="POST">
+          {% csrf_token %}
+            <div class="form-group">
+              {{r_form.myphoto|as_crispy_field}} 
+            </div>
+            <div class="form-group">
+              {{r_form.name|as_crispy_field}}
+            </div>
+            <div class="form-group">
+              {{r_form.your_experience|as_crispy_field}}
+            </div>
+            <div class="form-group">
+              {{r_form.facebook|as_crispy_field}}
+            </div>
+            <div class="form-group">
+              {{r_form.twitter|as_crispy_field}}
+            </div>
+            <div class="form-group">
+              {{r_form.instagram|as_crispy_field}}
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Finish" class="btn btn-primary py-3 px-5">
+            </div>
+          </form>
+        
+        </div>
+
+        <div class="col-md-6" id="map"></div>
+      </div>
+    </div>
+  </div>  
+        
+          
+                
+                
+              
+            
+        
+    
+        {% endblock%}
+</body>
+
+</html>

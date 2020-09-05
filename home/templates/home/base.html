@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+
+<head>
+    <title>The Tanuri</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                {% if messages %} {% for message in messages %}
+                <div class="alert alert-{{message.tags}}">{{ message}}</div>
+                {% endfor %} {% endif %}
+
+            </div>
+        </div>
+    </main>
+
+    {%block content%}{% endblock%}
+    <footer class="footer">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-6 col-lg-4">
+                    <h3 class="heading-section">About Us</h3>
+                    <p class="mb-5">Tanuri Restaurant is a restaurant that is located behide shell petrol station in Limuru town opened in 21st August 2018 our slugan is "Taste and Class Redefined" </p>
+                    <p><a href="{% url 'aboutus' %}" class="btn btn-primary px-4">Button</a></p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <h3 class="heading-section">Blog</h3>
+                    <div class="block-21 d-flex mb-4">
+                        <figure class="mr-3">
+                            <img src="{% static 'images/g-open.jpg' %}" alt="" class="img-fluid">
+                        </figure>
+                        <div class="text">
+                            <h3 class="heading"><a href="{% url 'blog' %}">Taste and Class Redefined</a></h3>
+                            <div class="meta">
+                                <div><a href="{% url 'blog' %}"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                <div><a href="{% url 'blog' %}"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="{% url 'blog' %}"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-21 d-flex mb-4">
+                        <figure class="mr-3">
+                            <img src="{% static 'images/prayer.jpg' %}" alt="" class="img-fluid">
+                        </figure>
+                        <div class="text">
+                            <h3 class="heading"><a href="{% url 'blog' %}">Taste and Class Redefined</a></h3>
+                            <div class="meta">
+                                <div><a href="{% url 'blog' %}"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                <div><a href="{% url 'blog' %}"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="{% url 'blog' %}"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-21 d-flex mb-4">
+                        <figure class="mr-3">
+                            <img src="{% static 'images/bg3.jpg' %}" alt="" class="img-fluid">
+                        </figure>
+                        <div class="text">
+                            <h3 class="heading"><a href="{% url 'blog' %}">Taste and Class Redefined</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="block-23">
+                        <h3 class="heading-section">Contact Info</h3>
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">Limuru town, Behide Shell petrol station, Kenya</span></li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+254 722 297 278</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">tanuritherestaurant@gmail.com</span></a></li>
+                            <li><span class="icon icon-clock-o"></span><span class="text">Monday &mdash; Friday 8:00am - 5:00pm</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row pt-5">
+                <div class="col-md-12 text-left">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This site was with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Dennis Munyu</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{% static 'js/google-map.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

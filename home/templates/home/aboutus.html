@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "home/base.html" %}{% load static%}
+
+<body>
+    {% block content%}
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i>The Tanuri <small> Restaurant</small></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item "><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'service' %}" class="nav-link">Services</a></li>
+                    <li class="nav-item active"><a href="{% url 'aboutus' %}" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="{% url 'contant' %}" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+    <div class="block-30 block-30-sm item" style="background-image: url({% static 'images/hotel2.jpg' %});" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <span class="subheading-sm">About</span>
+                    <h2 class="heading">The Restaurant</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <img src="{% static 'images/bg1.jpg' %}" alt="Image placeholder" class="img-fluid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <h2><b>About The Tanuri Restaurant</b></h2>
+                </div>
+                <div class="col-md-6">
+                    <p>Tanuri Restaurant is a restaurant that is located behide shell petrol station in Limuru town, it was opened on 21st August 2018 our slogan is "Taste and Class Redefined" .We do food delivery around Limuru and free deliveies within
+                        Limuru town </p>
+                    <p>Above all we fear God and do according to His will</p>
+                    <p></p>
+                </div>
+                <div class="col-md-6">
+                    <p>Come with friends and family and exprience a world class service we love and appreciate all, You are family and family comes first</p>
+                    <p></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="site-section">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col-md-12 mb-5">
+                    <h2>The Team</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for team in teams%}
+                <div class="col-md-6 col-lg-3">
+                    <div class="block-38 text-center">
+                        <div class="block-38-img">
+                            <div class="block-38-header">
+                                <img src="{{team.imgt.url}}" alt="Image placeholder">
+                                <h3 class="block-38-heading">{{team.name}}</h3>
+                                <p class="block-38-subheading">{{ team.position}}</p>
+                            </div>
+                            <div class="block-38-body">
+                                <p>{{team.little_info}} </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+    <!-- end of the team section -->
+    <div class=" site-section bg-light" id="blog">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-4">
+                    <div class="block-3 d-md-flex">
+                        <div class="text">
+                            <h2 class="heading"><a href="{% url 'blog' %}">The grand opening</a></h2>
+                            <p class="meta"><em>Posted on</em> <a href="{% url 'blog' %}">August 21, 2018</a> <span class="sep">&bullet;</span> <em>by</em> <a href="#">Admin</a> </p>
+                            <p>God first then everything next</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <div class="block-3 d-md-flex">
+                        <div class="text">
+                            <h2 class="heading"><a href="{% url 'blog' %}">The grand opening</a></h2>
+                            <p class="meta"><em>Posted on</em> <a href="">June 20, 2018</a> <span class="sep">&bullet;</span> <em>by</em> <a href="#">Admin</a> </p>
+                            <p>God first then everything next</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of events -->
+    <div class="block-31 mb-5" style="position: relative;">
+        <div class="owl-carousel loop-block-31">
+            <div class="block-30 no-overlay item" style="background-image: url({% static 'images/hotel1.jpg' %});"></div>
+            <div class="block-30 no-overlay item" style="background-image: url({% static 'images/team8.jpg' %});"></div>
+            <div class="block-30 no-overlay item" style="background-image: url({% static 'images/g-open.jpg' %});"></div>
+            <div class="block-30 no-overlay item" style="background-image: url({% static 'images/prayer.jpg' %});"></div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "home/base.html" %}{% load static %}
+
+<body>
+    {% block content%}
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i>The Tanuri <small> Restaurant</small></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item "><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'service' %}" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="{% url 'aboutus' %}" class="nav-link">About Us</a></li>
+                    <li class="nav-item active"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="{% url 'contant' %}" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+    <div class="block-30 block-30-sm item" style="background-image: url('images/hotel2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-10">
+          <span class="subheading-sm">{{blog.date_posted|date:"F d, Y " }} by Tanuri</span>
+              <h2 class="heading">{{blog.title}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+     <div id="blog" class="site-section">
+    <div class="container">
+            
+            <div class="row">
+
+              <div class="col-md-8">
+                <h2 class="mb-3">{{blog.title}}</h2>
+
+                <p><img src="{{blog.imgb.url}}" alt="" class="img-fluid"></p>
+
+                <p>{{blog.content}}</p>
+                <p></p>
+                <h2 class="mb-3 mt-5"></h2>
+                <p></p>
+                <p></p>
+        
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                  <div class="tagcloud">
+                    <a href="#" class="tag-cloud-link">Relax</a>
+                    <a href="#" class="tag-cloud-link">Hotel</a>
+                    <a href="#" class="tag-cloud-link">Luxury</a>
+                    <a href="#" class="tag-cloud-link">Unwind</a>
+                  </div>
+                </div>
+                
+                  </ul>
+                  <div class="comment-form-wrap pt-5">
+                    <h3 class="mb-5">Leave a comment</h3>
+                    <small> please choose this tittle {{blog.title}}</small>
+                    <form method="POST" class="p-5 bg-light">
+                      <div class="form-group">
+                        <label for="name">Name *</label>
+                           {{c_form.Name|as_crispy_field}}
+                      </div>
+                      <div class="form-group">
+                        <label for="title">Title *</label>
+                        {{c_form.Title|as_crispy_field}}
+                      </div>
+                      
+
+                      <div class="form-group">
+                        <label for="message">Message</label>
+                        {{c_form.Message|as_crispy_field}}
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div> <!-- .col-md-8 -->
+              </div>
+              </div>
+              </div>
+{% endblock %}
+    <body>
+
+
+</html>

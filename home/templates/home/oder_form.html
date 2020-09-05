@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "home/base.html" %}{% load crispy_forms_tags%}{% load static%}
+
+<body>
+    {% block content %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i>The Tanuri <small> Restaurant</small></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'service' %}" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="{% url 'aboutus' %}" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="{% url 'contant' %}" class="nav-link">Contact</a></li>
+                    <li class="nav-item active"><a href="{% url 'home' %}#pills-tab" class="nav-link">Oder</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+    <div class="block-30 block-30-sm item" style="background-image: url({% static 'images/hotel2.jpg' %});" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <span class="subheading-sm">Order</span>
+                    <h2 class="heading">Place Order</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-7 section-heading">
+                    <span class="subheading-sm">Order</span>
+                    <h2 class="heading">Place your Order below</h2>
+                </div>
+            </div>
+
+            <div class="block-35">
+
+                <ul class="nav" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Meal</a>
+                    </li>
+                </ul>
+
+
+                <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="row">
+                        <div class="col-md-12 block-13">
+                            <div class="nonloop-block-13 owl-carousel">
+                                <!--db start here -->
+                                <div class="item">
+                                    <div class="block-34">
+                                        <div class="image">
+                                            <a href="{% url 'home' %}#pills-tab"><img src="{{ meal.img.url }}" alt="Image placeholder"></a>
+                                        </div>
+                                        <div class="text">
+                                            <h2 class="heading">{{ meal.name}}</h2>
+                                            <p>{{ meal.description}}</p>
+                                            <div class="price"><sup>Ksh</sup><span class="number">{{meal.price}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row block-9">
+                <div class="col-md-6 pr-md-5">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <!-- SECURITY PURPOSE -->
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Place your Order</legend>
+                            {{ p_form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <input type="submit" value="Place Oder" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock%}
+</body>
+
+</html>
