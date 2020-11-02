@@ -24,9 +24,9 @@ urlpatterns = [
     path('tanuriadmin/', admin.site.urls),
     path('', include('home.urls')),
     path('blog/', include('blog.urls')),
-    
+
 ]
 
-#urlpatterns += 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns +=
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
